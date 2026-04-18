@@ -1,7 +1,7 @@
 import SmartFinder from "@/components/AIMatching/SmartFinder";
 
 export const metadata = {
-  title: "AI Glass Matcher | AmalGus",
+  title: "AI Glass Matcher | Glass121",
   description: "Describe your need in plain language, and our AI will recommend the perfect glass.",
 };
 

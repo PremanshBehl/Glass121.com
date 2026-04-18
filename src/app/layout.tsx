@@ -10,7 +10,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: "AmalGus Glass Marketplace",
+  title: "Glass121 Glass Marketplace",
   description: "Transparency in Glass, Built for the Industry",
 };
 

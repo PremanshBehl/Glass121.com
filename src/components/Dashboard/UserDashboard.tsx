@@ -365,7 +365,7 @@ export default function UserDashboard() {
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 rounded bg-white/10 flex items-center justify-center font-bold text-xl text-white">AG</div>
                   <div>
-                    <h3 className="font-bold text-white text-lg">AmalGus Official</h3>
+                    <h3 className="font-bold text-white text-lg">Glass121 Official</h3>
                     <p className="text-sm text-gray-400">Direct Manufacturer</p>
                   </div>
                 </div>

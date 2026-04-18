@@ -46,7 +46,7 @@ export default function Footer() {
         
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} AmalGus Technologies. All rights reserved.
+            &copy; {new Date().getFullYear()} Glass121 Technologies. All rights reserved.
           </p>
           <div className="flex gap-4">
             {/* Social links placeholder */}

@@ -13,7 +13,7 @@ export default function VendorComparison() {
   };
   const vendors = [
     {
-      name: "AmalGus",
+      name: "Glass121",
       location: "Pan-India",
       price: "₹45-60",
       rating: 4.9,

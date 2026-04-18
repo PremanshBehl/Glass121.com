@@ -24,7 +24,7 @@ export default function CTASection() {
             Ready to Transform Glass Buying?
           </h2>
           <p className="text-xl text-gray-400 font-inter mb-10">
-            Join thousands of professionals already saving time and money on AmalGus.
+            Join thousands of professionals already saving time and money on Glass121.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

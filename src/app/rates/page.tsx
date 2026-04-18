@@ -1,7 +1,7 @@
 import RatesDashboard from "@/components/Rates/RatesDashboard";
 
 export const metadata = {
-  title: "Daily Rates | AmalGus",
+  title: "Daily Rates | Glass121",
   description: "Real-time glass pricing updates and historical trends.",
 };
 

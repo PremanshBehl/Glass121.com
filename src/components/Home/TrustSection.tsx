@@ -17,7 +17,7 @@ export default function TrustSection() {
     <section className="py-20 bg-[#11141e] border-y border-white/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-poppins font-bold text-white mb-4">Why AmalGus?</h2>
+          <h2 className="text-3xl md:text-4xl font-poppins font-bold text-white mb-4">Why Glass121?</h2>
           <div className="w-24 h-1 bg-accent-cyan mx-auto rounded-full"></div>
         </div>
 

@@ -1,7 +1,7 @@
 import UserDashboard from "@/components/Dashboard/UserDashboard";
 
 export const metadata = {
-  title: "Dashboard | AmalGus",
+  title: "Dashboard | Glass121",
   description: "Manage your glass orders, quotes, and account settings.",
 };
 

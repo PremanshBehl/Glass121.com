@@ -30,7 +30,7 @@ export const useWishlistStore = create<WishlistState>()(
       isInWishlist: (id) => get().items.some(i => i.id === id)
     }),
     {
-      name: 'amalgus-wishlist',
+      name: 'glass121-wishlist',
     }
   )
 );

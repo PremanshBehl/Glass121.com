@@ -19,7 +19,7 @@ export default function ProductDetail() {
   const product = {
     id: id,
     name: "8mm Toughened Glass",
-    brand: "AmalGus Verified",
+    brand: "Glass121 Verified",
     rating: 4.8,
     reviews: 247,
     description: "High-strength safety glass processed by controlled thermal treatments to increase its strength compared with normal glass. Perfect for shower enclosures, glass doors, and table tops.",
@@ -227,7 +227,7 @@ export default function ProductDetail() {
                     </div>
                     <div className="flex justify-between items-start mb-3">
                       <div>
-                        <h4 className="font-bold text-lg">AmalGus Official</h4>
+                        <h4 className="font-bold text-lg">Glass121 Official</h4>
                         <div className="flex items-center text-sm text-gray-600">
                           <Star size={14} className="fill-accent-gold text-accent-gold mr-1" /> 4.9 (1.2k jobs)
                         </div>

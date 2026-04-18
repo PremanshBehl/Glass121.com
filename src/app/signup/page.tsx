@@ -67,7 +67,7 @@ export default function SignupPage() {
           <form onSubmit={handleNext}>
             <div className="text-center mb-6">
               <h1 className="text-2xl font-poppins font-bold text-white mb-2">Create Account</h1>
-              <p className="text-gray-400 text-sm">Join the AmalGus marketplace today.</p>
+              <p className="text-gray-400 text-sm">Join the Glass121 marketplace today.</p>
             </div>
 
             <div className="space-y-4 mb-6">

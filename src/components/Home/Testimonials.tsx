@@ -7,7 +7,7 @@ import { Star, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    quote: "AmalGus saved us 30% on our facade project by showing daily rate trends. The platform's transparency is a game-changer for the industry.",
+    quote: "Glass121 saved us 30% on our facade project by showing daily rate trends. The platform's transparency is a game-changer for the industry.",
     author: "Rajesh Kumar",
     role: "Lead Architect",
     location: "Mumbai",

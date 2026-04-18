@@ -46,7 +46,7 @@ export const useCartStore = create<CartState>()(
       }
     }),
     {
-      name: 'amalgus-cart',
+      name: 'glass121-cart',
     }
   )
 );

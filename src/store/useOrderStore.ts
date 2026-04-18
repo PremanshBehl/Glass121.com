@@ -40,7 +40,7 @@ export const useOrderStore = create<OrderState>()(
       }))
     }),
     {
-      name: 'amalgus-orders',
+      name: 'glass121-orders',
     }
   )
 );

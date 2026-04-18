@@ -23,7 +23,7 @@ export const useAuthStore = create<AuthState>()(
       logout: () => set({ user: null, isAuthenticated: false }),
     }),
     {
-      name: 'amalgus-auth',
+      name: 'glass121-auth',
     }
   )
 );
