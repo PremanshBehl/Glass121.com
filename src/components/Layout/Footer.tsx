@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="text-2xl font-poppins font-bold text-white flex items-center gap-2 mb-4">
-              <span className="text-accent-cyan">Amal</span>Gus
+              <span className="text-accent-cyan">Glass</span>121
             </Link>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">
               The Amazon for glass and building materials. A sophisticated, niche platform connecting the $150B+ global glass industry.

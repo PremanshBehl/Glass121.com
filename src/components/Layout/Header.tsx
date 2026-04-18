@@ -26,7 +26,7 @@ export default function Header() {
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/" className="text-2xl font-poppins font-bold text-white flex items-center gap-2">
-            <span className="text-accent-cyan">Amal</span>Gus
+            <span className="text-accent-cyan">Glass</span>121
           </Link>
           
           <nav className="hidden md:flex items-center gap-6">
