@@ -1,30 +1,16 @@
 @import "tailwindcss";
-
-:root {
-  --primary-dark: #1a1f2e;
-  --accent-cyan: #00d9ff;
-  --accent-gold: #d4af37;
-  --accent-teal: #0f4c75;
-  --bg-light: #f5f7fa;
-  --text-dark: #1a1f2e;
-  --text-gray: #6b7280;
-  --success: #06a77d;
-  --danger: #e63946;
-  
-  --background: var(--primary-dark);
-  --foreground: #ededed;
-}
+@import "../styles/variables.css";
+@import "../styles/animations.css";
 
 @theme inline {
-  --color-primary-dark: var(--primary-dark);
-  --color-accent-cyan: var(--accent-cyan);
-  --color-accent-gold: var(--accent-gold);
-  --color-accent-teal: var(--accent-teal);
-  --color-bg-light: var(--bg-light);
-  --color-text-dark: var(--text-dark);
-  --color-text-gray: var(--text-gray);
+  --color-primary-dark: var(--brand-navy);
+  --color-accent-cyan: var(--brand-accent);
+  --color-accent-gold: var(--brand-gold);
+  --color-bg-light: var(--off-white);
+  --color-text-dark: var(--text);
+  --color-text-gray: var(--text-muted);
   --color-success: var(--success);
-  --color-danger: var(--danger);
+  --color-danger: var(--error);
 
   --font-poppins: var(--font-poppins);
   --font-playfair: var(--font-playfair);
@@ -32,10 +18,40 @@
   --font-mono: var(--font-mono);
 }
 
+html,
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
   font-family: var(--font-inter);
+  text-rendering: optimizeLegibility;
+}
+
+:where(a, button, input, textarea, select, [role="button"], [tabindex]):focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 4px var(--focus);
+  border-radius: var(--radius-md);
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 9999;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-3);
+  transform: translateY(-200%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 /* Custom scrollbar */
@@ -44,12 +60,13 @@ body {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--primary-dark); 
+  background: var(--surface-2);
 }
 ::-webkit-scrollbar-thumb {
-  background: #374151; 
+  background: color-mix(in srgb, var(--text-muted) 35%, transparent);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-cyan); 
+  background: var(--brand-accent);
 }
+
