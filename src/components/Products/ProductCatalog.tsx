@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Filter, Star, Heart, CheckSquare, Square, X, Check } from "lucide-react";
+import { useMemo, useState } from "react";
+import { Filter, Star, Heart, CheckSquare, Square, X } from "lucide-react";
 import Link from "next/link";
 import { useCartStore } from "@/store/useCartStore";
 import { useWishlistStore } from "@/store/useWishlistStore";
@@ -26,42 +26,18 @@ export default function ProductCatalog() {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [filters, setFilters] = useState(initialFilters);
-  const [products, setProducts] = useState(SAMPLE_PRODUCTS);
-  const [isMounted, setIsMounted] = useState(false);
   
   const addToCart = useCartStore(state => state.addItem);
   const { addItem: addToWishlist, removeItem: removeFromWishlist, isInWishlist } = useWishlistStore();
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    const filtered = SAMPLE_PRODUCTS.filter(product => {
-      // Check glass type
-      if (filters.glassType.length > 0 && !filters.glassType.includes(product.type)) {
-        return false;
-      }
-      
-      // Check thickness
-      if (product.thickness < filters.thickness.min || product.thickness > filters.thickness.max) {
-        return false;
-      }
-      
-      // Check application
-      if (filters.application.length > 0 && !filters.application.some(app => product.application.includes(app))) {
-        return false;
-      }
-
-      // Check price
-      if (product.priceMin > filters.priceRange.max || product.priceMax < filters.priceRange.min) {
-        return false;
-      }
-      
+  const products = useMemo(() => {
+    return SAMPLE_PRODUCTS.filter((product) => {
+      if (filters.glassType.length > 0 && !filters.glassType.includes(product.type)) return false;
+      if (product.thickness < filters.thickness.min || product.thickness > filters.thickness.max) return false;
+      if (filters.application.length > 0 && !filters.application.some((app) => product.application.includes(app))) return false;
+      if (product.priceMin > filters.priceRange.max || product.priceMax < filters.priceRange.min) return false;
       return true;
     });
-    
-    setProducts(filtered);
   }, [filters]);
 
   const toggleCompare = (id: string) => {
@@ -264,13 +240,14 @@ export default function ProductCatalog() {
                           addToWishlist({ id: product.id, name: product.name, price: product.priceMin });
                         }
                       }}
+                      suppressHydrationWarning
                       className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors shadow-sm ${
-                        isMounted && isInWishlist(product.id) 
+                        isInWishlist(product.id) 
                         ? 'bg-white text-danger' 
                         : 'bg-white/80 backdrop-blur text-gray-500 hover:text-danger hover:bg-white'
                       }`}
                     >
-                      <Heart size={16} className={isMounted && isInWishlist(product.id) ? "fill-danger" : ""} />
+                      <Heart size={16} className={isInWishlist(product.id) ? "fill-danger" : ""} />
                     </button>
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { User, FileText, Heart, ShoppingBag, CreditCard, MapPin, Bell, Settings, LogOut, Package, Zap, ChevronRight, X, ShoppingCart, Check } from "lucide-react";
+import { useState } from "react";
+import { User, FileText, Heart, ShoppingBag, CreditCard, MapPin, Bell, Settings, LogOut, Package, Zap, X, ShoppingCart, Check } from "lucide-react";
 import Link from "next/link";
 
 import { useAuthStore } from "@/store/useAuthStore";
@@ -19,17 +19,25 @@ export default function UserDashboard() {
 
   const [notificationsVisible, setNotificationsVisible] = useState(true);
   const [addressVisible, setAddressVisible] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
 
   const handleMockAction = (actionName: string) => {
     console.log(`"${actionName}" action triggered! This feature is simulated in the prototype.`);
   };
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted || !user) return null;
+  if (!user) {
+    return (
+      <div className="max-w-3xl mx-auto py-20 px-4 text-center" suppressHydrationWarning>
+        <h1 className="text-3xl font-poppins font-bold text-white mb-4">Sign in to view your dashboard</h1>
+        <p className="text-gray-400 mb-8">Your orders, quotes, and saved items live here.</p>
+        <Link
+          href="/login"
+          className="inline-flex bg-accent-cyan text-primary-dark font-bold px-8 py-3 rounded-lg hover:bg-[#00bfe6] transition-colors"
+        >
+          Go to Login
+        </Link>
+      </div>
+    );
+  }
   
   const sidebarNav = [
     { id: "overview", label: "Overview", icon: <User size={18} /> },
@@ -96,8 +104,10 @@ export default function UserDashboard() {
         
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-poppins font-bold text-white mb-2">Welcome back, {user.name}!</h1>
-          <p className="text-gray-400 font-inter">Here's an overview of your account activity.</p>
+          <h1 className="text-3xl font-poppins font-bold text-white mb-2">
+            Welcome back, {user.name}!
+          </h1>
+          <p className="text-gray-400 font-inter">Here&apos;s an overview of your account activity.</p>
         </div>
 
         {activeTab === "overview" && (

@@ -52,7 +52,7 @@ const mockAIResponse: Recommendation = {
   customerNote: "For shower enclosures, safety glass is mandatory. We recommend toughened glass as it crumbles into small, blunt pieces rather than sharp shards if broken."
 };
 
-import { useCartStore } from "@/store/useCartStore";
+import { toErrorMessage } from "@/lib/errorHandler";
 
 // Mock database for simple keyword matching
 const glassDatabase: { keywords: string[], response: Recommendation }[] = [
@@ -66,7 +66,6 @@ export default function SmartFinder() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Recommendation | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const addToCart = useCartStore(state => state.addItem);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,9 +90,9 @@ export default function SmartFinder() {
           }
         }
         setResult(matchedResponse);
-      } catch (err: any) {
+      } catch (err) {
         console.error('Error fetching recommendations:', err);
-        setError(err.message || "An unexpected error occurred");
+        setError(toErrorMessage(err, "An unexpected error occurred"));
       } finally {
         setLoading(false);
       }
@@ -274,7 +273,7 @@ export default function SmartFinder() {
                   <Info className="w-8 h-8 text-accent-gold mb-4" />
                   <h3 className="text-lg font-poppins font-semibold text-white mb-2">Expert Note</h3>
                   <p className="text-sm text-gray-300 leading-relaxed italic">
-                    "{result.customerNote}"
+                    &quot;{result.customerNote}&quot;
                   </p>
                 </div>
               </div>

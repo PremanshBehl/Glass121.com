@@ -81,7 +81,7 @@ export default function Testimonials() {
                 </div>
                 
                 <p className="text-xl md:text-2xl font-playfair italic text-white mb-8 leading-relaxed">
-                  "{testimonials[currentIndex].quote}"
+                  &quot;{testimonials[currentIndex].quote}&quot;
                 </p>
                 
                 <div className="flex items-center justify-center md:justify-start gap-4">

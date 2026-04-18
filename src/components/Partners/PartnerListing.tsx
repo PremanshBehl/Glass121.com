@@ -3,17 +3,29 @@
 import { useState } from "react";
 import { Search, MapPin, Star, ShieldCheck, Map, List as ListIcon, Phone, MessageSquare, Calendar, X } from "lucide-react";
 import { useOrderStore } from "@/store/useOrderStore";
+type Partner = {
+  id: number;
+  name: string;
+  rating: number;
+  reviews: number;
+  verified: boolean;
+  services: string[];
+  location: string;
+  distance: string;
+  response: string;
+  image: string;
+};
 
 export default function PartnerListing() {
   const [view, setView] = useState<'list'|'map'>('list');
   const [activeFilter, setActiveFilter] = useState('All Services');
   const [showContactModal, setShowContactModal] = useState(false);
-  const [selectedPartner, setSelectedPartner] = useState<any>(null);
+  const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
   const [contactMessage, setContactMessage] = useState('');
   
   const { addOrder } = useOrderStore();
 
-  const partners = [
+  const partners: Partner[] = [
     {
       id: 1,
       name: "Rajesh Installation Services",

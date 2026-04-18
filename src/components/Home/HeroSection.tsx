@@ -1,9 +1,20 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function HeroSection() {
+  const delays = useMemo(
+    () =>
+      Array.from({ length: 48 }, (_, i) => {
+        // deterministic "random" delay derived from index
+        const seed = (i * 9301 + 49297) % 233280;
+        return (seed / 233280) * 2;
+      }),
+    []
+  );
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-primary-dark">
       {/* Background glass grid effect */}
@@ -15,7 +26,7 @@ export default function HeroSection() {
               className="bg-white/5 border border-white/10 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: Math.random() * 2, duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+              transition={{ delay: delays[i] ?? 0, duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
               whileHover={{ backgroundColor: "rgba(0, 217, 255, 0.2)", borderColor: "rgba(0, 217, 255, 0.5)" }}
             />
           ))}

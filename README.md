@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Glass121 is a Next.js marketplace prototype for sourcing glass products (catalog, AI matcher, rates, vendors, partners, cart/checkout).
 
 ## Getting Started
 
@@ -16,7 +16,25 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
+
+See:
+
+- `ARCHITECTURE.md` for folder conventions and routing groups
+- `CONTRIBUTING.md` for dev workflow and conventions
+
+Key folders:
+
+- `src/app/`: routes + API handlers
+- `src/components/`: UI components
+- `src/lib/`: API client + shared utilities
+- `src/types/`: domain types
+- `src/data/`: mock/static data
+- `src/hooks/` and `src/context/`: app-facing state surface
+
+## Notes
+
+- The App Router homepage lives under `src/app/(marketplace)/page.tsx` (route groups don’t change URLs).
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 

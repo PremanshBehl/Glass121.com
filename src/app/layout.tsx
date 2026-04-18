@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, Playfair_Display, JetBrains_Mono } from "next/font/google";
-import Header from "@/components/Layout/Header";
-import Footer from "@/components/Layout/Footer";
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -21,10 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${poppins.variable} ${playfair.variable} ${mono.variable} antialiased min-h-screen bg-primary-dark text-white flex flex-col`}>
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+      <body
+        className={`${inter.variable} ${poppins.variable} ${playfair.variable} ${mono.variable} antialiased min-h-screen bg-primary-dark text-white`}
+      >
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,25 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { Search, User, Heart, ShoppingCart, Menu, LogOut } from "lucide-react";
+import { Search, User, Heart, ShoppingCart, Menu } from "lucide-react";
 import { useAuthStore } from "@/store/useAuthStore";
 import { useCartStore } from "@/store/useCartStore";
 import { useWishlistStore } from "@/store/useWishlistStore";
-import { useEffect, useState } from "react";
 
 export default function Header() {
-  const { isAuthenticated, user, logout } = useAuthStore();
+  const { isAuthenticated, user } = useAuthStore();
   const { items: cartItems } = useCartStore();
   const { items: wishlistItems } = useWishlistStore();
-  
-  // Prevent hydration mismatch by only rendering store data after mount
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
-  const cartCount = isMounted ? cartItems.reduce((acc, item) => acc + item.quantity, 0) : 0;
-  const wishlistCount = isMounted ? wishlistItems.length : 0;
+  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const wishlistCount = wishlistItems.length;
 
   return (
     <header className="sticky top-0 z-50 bg-primary-dark/90 backdrop-blur-md border-b border-white/10">
@@ -45,27 +38,29 @@ export default function Header() {
           </Link>
           <Link href="/dashboard" className="hidden md:flex relative p-2 text-gray-300 hover:text-accent-cyan transition-colors">
             <Heart size={20} />
-            {isMounted && wishlistCount > 0 && (
+            {wishlistCount > 0 && (
               <span className="absolute -top-1 -right-1 bg-danger text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                {wishlistCount}
+                <span suppressHydrationWarning>{wishlistCount}</span>
               </span>
             )}
           </Link>
           <Link href="/cart" className="hidden md:flex relative p-2 text-gray-300 hover:text-accent-cyan transition-colors">
             <ShoppingCart size={20} />
-            {isMounted && cartCount > 0 && (
+            {cartCount > 0 && (
               <span className="absolute -top-1 -right-1 bg-accent-cyan text-primary-dark text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                {cartCount}
+                <span suppressHydrationWarning>{cartCount}</span>
               </span>
             )}
           </Link>
           <div className="h-6 w-px bg-gray-700 hidden md:block"></div>
           
-          {isMounted && isAuthenticated ? (
+          {isAuthenticated ? (
             <div className="hidden md:flex items-center gap-4">
               <Link href="/dashboard" className="flex items-center gap-2 text-sm font-inter text-gray-300 hover:text-white transition-colors">
                 <User size={20} />
-                <span className="truncate max-w-[100px]">{user?.name}</span>
+                <span className="truncate max-w-[100px]" suppressHydrationWarning>
+                  {user?.name}
+                </span>
               </Link>
             </div>
           ) : (
